@@ -33,9 +33,11 @@
 //   valueRange?: number | null[];
 // }
 
-export interface FormField {
+export interface IFormField {
   id: number;
   created: string;
   value: string;
   selected: boolean;
+  condition?: string;
+  hasError: boolean;
 }

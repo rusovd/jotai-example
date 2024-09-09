@@ -1,7 +1,7 @@
 import React from "react";
 import { useAtom } from "jotai";
 import { atomWithStorage } from 'jotai/utils';
-import type { FormField } from "../store/formField.types";
+import type { IFormField } from "../store/formField.types";
 import {
   formFieldsAtoms,
   updateFormFieldAtom,
@@ -11,7 +11,7 @@ import {
 import { Add } from "./Add";
 import { FlexRow, Wrapper } from "./style";
 
-const userSettingsAtom = atomWithStorage<FormField[]>("userFormFields", []);
+const userSettingsAtom = atomWithStorage<IFormField[]>("userFormFields", []);
 
 export const List = () => {
   const [list] = useAtom(formFieldsAtoms);
@@ -27,7 +27,7 @@ export const List = () => {
 
   return (
     <Wrapper>
-      {list.map((item: FormField) => (
+      {list.map((item: IFormField) => (
         <FlexRow key={item.id}>
           <input
             type="checkbox"

@@ -1,13 +1,13 @@
 import { atom } from "jotai";
-import { FormField } from "./formField.types";
-import { initData } from "./constants";
+import { IFormField } from "./formField.types";
+import { initFormFields } from "./constants";
 
 const extractTimeFromISOString = (isoString: string): string => {
   const match = isoString.match(/T(\d{2}:\d{2}:\d{2}(?:\.\d+)?)/);
   return match ? match[1] : '';
 };
 
-const updateFormField = (formFields: FormField[], id: number, value: string): FormField[] => {
+const updateFormField = (formFields: IFormField[], id: number, value: string): IFormField[] => {
   return formFields.map((formField) => ({
     ...formField,
     value: formField.id === id ? value : formField.value,
@@ -15,18 +15,18 @@ const updateFormField = (formFields: FormField[], id: number, value: string): Fo
   }));
 };
 
-const removeFormField = (formFields: FormField[], id: number): FormField[] => {
+const removeFormField = (formFields: IFormField[], id: number): IFormField[] => {
   return formFields.filter((formField) => formField.id !== id);
 };
 
-const toggleFormField = (formFields: FormField[], id: number): FormField[] => {
+const toggleFormField = (formFields: IFormField[], id: number): IFormField[] => {
   return formFields.map((formField) => ({
     ...formField,
     selected: formField.id === id ? !formField.selected : formField.selected,
   }));
 };
 
-const addFormField = (formFields: FormField[], value: string, created: string): FormField[] => {
+const addFormField = (formFields: IFormField[], value: string, created: string): IFormField[] => {
   return [
     ...formFields,
     {
@@ -34,12 +34,13 @@ const addFormField = (formFields: FormField[], value: string, created: string): 
       created: extractTimeFromISOString(created),
       value: value,
       selected: false,
+      hasError: false,
     },
   ];
 };
 
 export const newFormFieldAtom = atom<string>("");
-export const formFieldsAtoms = atom<FormField[]>(initData);
+export const formFieldsAtoms = atom<IFormField[]>(initFormFields);
 export const addNewFormFieldAtom = atom(
   () => "",
   (get, set, { value, created }: { value: string, created: string }) => {
