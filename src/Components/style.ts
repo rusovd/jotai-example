@@ -9,4 +9,11 @@ export const FlexRow = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 10px;
+  gap: 10px;
+`;
+
+export const InputWithCondition = styled.input<{ hasError: boolean }>`
+  border: 1px solid ${(props) => (props.hasError ? 'red' : 'black')};
+  color: ${(props) => (props.hasError ? 'red' : 'black')};
+  padding: 5px;
 `;

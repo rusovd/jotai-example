@@ -1,11 +1,11 @@
-import { IFormField } from "./formField.types";
-import { ICondition } from "./condition.types";
+import { IFormField } from "../store/formField.types";
+import { ICondition } from "../store/condition.types";
 
 export const initFormFields: IFormField[] = [
   {
     "id": 1,
     "created": "22:01:00.111",
-    "value": "1111",
+    "value": "111",
     "selected": false,
     "condition": "required",
     "hasError": false,
@@ -15,7 +15,7 @@ export const initFormFields: IFormField[] = [
     "created": "22:02:00.222",
     "value": "222",
     "selected": false,
-    "condition": "isEven",
+    "condition": "isOdd",
     "hasError": true,
   },
   {
@@ -31,6 +31,7 @@ export const initFormFields: IFormField[] = [
     "created": "22:04:00.444",
     "value": "444",
     "selected": false,
+    "condition": "required",
     "hasError": false,
   },
   {
@@ -38,14 +39,15 @@ export const initFormFields: IFormField[] = [
     "created": "22:05:00.555",
     "value": "555",
     "selected": true,
-    "condition": "",
-    "hasError": false,
+    "condition": "isEven",
+    "hasError": true,
   },
   {
     "id": 6,
     "created": "22:06:00.666",
     "value": "666",
     "selected": false,
+    "condition": "required",
     "hasError": false,
   },
   {
@@ -53,6 +55,7 @@ export const initFormFields: IFormField[] = [
     "created": "22:07:00.777",
     "value": "777",
     "selected": true,
+    "condition": "required",
     "hasError": false,
   },
   {
@@ -67,6 +70,10 @@ export const initFormFields: IFormField[] = [
 export const initConditions: ICondition[] = [
   {
     name: "isEven",
+    func: "(v) => v && v%2 == 0"
+  },
+  {
+    name: "isOdd",
     func: "(v) => v && v%2 != 0"
   },
   {
