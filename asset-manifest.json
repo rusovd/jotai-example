@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/jotai-example/static/css/main.32ee9d66.css",
+    "main.js": "/jotai-example/static/js/main.b06e875b.js",
+    "static/js/453.530da6b4.chunk.js": "/jotai-example/static/js/453.530da6b4.chunk.js",
+    "index.html": "/jotai-example/index.html",
+    "main.32ee9d66.css.map": "/jotai-example/static/css/main.32ee9d66.css.map",
+    "main.b06e875b.js.map": "/jotai-example/static/js/main.b06e875b.js.map",
+    "453.530da6b4.chunk.js.map": "/jotai-example/static/js/453.530da6b4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.32ee9d66.css",
+    "static/js/main.b06e875b.js"
+  ]
+}
